@@ -1,0 +1,42 @@
+---
+import { Fathom } from "astro-fathom";
+import "@fontsource/sora";
+import "@fontsource/sora/500.css";
+import "@fontsource/sora/600.css";
+import "@fontsource/sora/700.css";
+
+import "@fontsource/jetbrains-mono/500.css";
+import "@fontsource/jetbrains-mono/600.css";
+import "@fontsource/jetbrains-mono/700.css";
+
+import 'react-data-grid/lib/styles.css'
+import "@/styles/globals.css";
+import "@/styles/grid.css";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const fathomID = import.meta.env.FATHOM_SITE;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    {fathomID && <Fathom honorDnt />}
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.classList.add(theme);
+    </script>
+  </head>
+  <body class="h-full">
+    <slot />
+  </body>
+</html>
