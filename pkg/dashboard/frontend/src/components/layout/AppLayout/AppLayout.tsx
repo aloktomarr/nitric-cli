@@ -368,7 +368,6 @@ const AppLayout: React.FC<Props> = ({
                   </PopoverContent>
                 </Popover>
               ) : null}
-              <ModeToggle />
               <span className="hidden font-semibold lg:block">
                 Local Dashboard
               </span>
@@ -452,6 +451,7 @@ const AppLayout: React.FC<Props> = ({
                   </PopoverContent>
                 </Popover>
               </div>
+              <ModeToggle />
             </div>
           </div>
         </div>
